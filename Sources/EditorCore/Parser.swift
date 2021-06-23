@@ -16,7 +16,7 @@ public class Parser {
     
     public init(grammars: [Grammar]) {
         self.grammars = grammars
-        self.grammars.forEach{ $0.parser = self }
+        self.grammars.forEach{[weak self] in $0.parser = self }
     }
     
     public func grammar(withScope scope: String) -> Grammar? {
